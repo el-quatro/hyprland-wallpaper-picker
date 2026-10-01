@@ -1,0 +1,119 @@
+configuration {
+    show-icons: true;
+}
+
+* {
+    font: "JetBrainsMono Nerd Font 13";
+
+    bg:             #11111bee;
+    bg-alt:         #181825ff;
+    foreground:     #cdd6f4ff;
+    accent:         #89b4faff;
+    selected-text:  #11111bff;
+
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+window {
+    width: 52%;
+    height: 55%;
+
+    location: center;
+    anchor: center;
+
+    background-color: transparent;
+
+    border: 0px;
+    padding: 0px;
+}
+
+mainbox {
+    background-color: #11111bff;
+
+    border: 2px;
+    border-color: #89b4faff;
+    border-radius: 16px;
+
+    padding: 18px;
+    spacing: 14px;
+
+    children: [
+        inputbar,
+        listview
+    ];
+}
+
+inputbar {
+    background-color: @bg-alt;
+
+    border-radius: 10px;
+    padding: 10px 14px;
+
+    spacing: 8px;
+
+    children: [
+        prompt,
+        entry
+    ];
+}
+
+prompt {
+    text-color: @accent;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @foreground;
+
+    placeholder: "Search...";
+    placeholder-color: #6c7086ff;
+}
+
+listview {
+    background-color: transparent;
+
+    columns: 4;
+    lines: 2;
+
+    spacing: 10px;
+
+    fixed-height: true;
+    fixed-columns: true;
+
+    scrollbar: false;
+
+    flow: horizontal;
+}
+
+element {
+    orientation: vertical;
+
+    background-color: @bg-alt;
+
+    border-radius: 10px;
+
+    padding: 8px;
+    spacing: 6px;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @selected-text;
+}
+
+element-icon {
+    size: 140px;
+
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+
+    horizontal-align: 0.5;
+
+    margin: 4px 0px 0px 0px;
+}
