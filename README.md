@@ -313,6 +313,7 @@ Example:
 WALLPAPER_DIR="$HOME/Pictures/Wallpaper"
 MONITOR="eDP-1"
 THEME="$HOME/.config/rofi/wallpaper.rasi"
+HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
 
 SELECTED="$(
     find "$WALLPAPER_DIR" -maxdepth 1 -type f \
@@ -332,7 +333,20 @@ SELECTED="$(
 
 WALLPAPER="$WALLPAPER_DIR/$SELECTED"
 
+# Change wallpaper immediately
 hyprctl hyprpaper wallpaper "$MONITOR, $WALLPAPER, cover"
+
+# Save selected wallpaper so it survives logout/reboot
+cat > "$HYPRPAPER_CONF" <<EOF
+wallpaper {
+    monitor = $MONITOR
+    path = $WALLPAPER
+    fit_mode = cover
+}
+
+splash = false
+ipc = on
+EOF
 ```
 
 Make sure this matches your monitor:
